@@ -10,7 +10,7 @@ import UIKit
 
 class ShelfViewController: UIViewController {
   
-  var selectedShelf: Shelf!
+  var selectedLibrary: Library!
   
   override func viewDidLoad() {
     super.viewDidLoad()

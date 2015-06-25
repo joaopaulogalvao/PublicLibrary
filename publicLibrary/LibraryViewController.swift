@@ -41,7 +41,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource {
     {
       for object in libraryObjects {
         
-        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? Array<Shelf> {
+        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [[String : String]]{
             let library = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
             self.library.append(library)
         }
@@ -91,12 +91,12 @@ class LibraryViewController: UIViewController,UITableViewDataSource {
           
           // selected Library grabs a reference from the clicked library
           //let selectedLibrary = self.library[selectedRow]
-          let selectedLibrary = self.shelves[selectedRow]
+          let selectedLibrary = self.library[selectedRow]
           
           //println(selectedLibrary.shelfLabel)
           
           // Pass the selected object to the new view controller.
-          shelflViewController.selectedShelf = selectedLibrary 
+          shelflViewController.selectedLibrary = selectedLibrary
           // detailViewController.setupTextFields()
           
         }

@@ -13,9 +13,9 @@ class Library {
   
   var libraryName: String
   var shelvesCount: Int
-  var shelves : [Shelf]!
+  var shelves : [[String : String]]!
   
-  init (libraryName: String, shelvesCount: Int, shelves: [Shelf] ){
+  init (libraryName: String, shelvesCount: Int, shelves: [[String : String]] ){
     
     self.libraryName = libraryName
     self.shelvesCount = shelvesCount
