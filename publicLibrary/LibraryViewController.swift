@@ -8,10 +8,16 @@
 
 import UIKit
 
-class LibraryViewController: UIViewController,UITableViewDataSource {
+class LibraryViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
   
   var library = [Library]()
-  var shelves = [Shelf]()
+  var shelves : [Shelf]!
+  
+//  var selMake = String()
+//  
+//  var libraryData : [String] = ["Freemont", "Ballard", "Wedgewood", "Downtown"]
+
+  
   
   @IBOutlet weak var tableViewLibraries: UITableView!
   
@@ -41,7 +47,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource {
     {
       for object in libraryObjects {
         
-        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [[String : String]]{
+        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [String] {
             let library = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
             self.library.append(library)
         }
@@ -74,6 +80,13 @@ class LibraryViewController: UIViewController,UITableViewDataSource {
     return libraryCell
   }
   
+//  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+//    selMake = libraryData[indexPath.row]
+//    performSegueWithIdentifier("ShowShelves", sender: self)
+//  }
+  
+
+  
   // MARK: - Navigation
   
   // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -96,7 +109,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource {
           //println(selectedLibrary.shelfLabel)
           
           // Pass the selected object to the new view controller.
-          shelflViewController.selectedLibrary = selectedLibrary
+          shelflViewController.selectedLibrary = self.library
           // detailViewController.setupTextFields()
           
         }

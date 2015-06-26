@@ -85,6 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableviewShelves" destination="r5N-83-EAH" id="pHU-gX-8EI"/>
                         <segue destination="ZE9-xo-d13" kind="show" identifier="ShowBooks" id="f5Z-Q9-jI9"/>
                     </connections>
                 </viewController>
