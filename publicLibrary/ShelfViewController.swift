@@ -31,9 +31,9 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
     {
       for object in shelfObjects {
         
-        if let shelves = object["shelves"] as? [String] {
-          let shelves = Library(shelves: shelves)
-            self.shelf.append(shelves)
+        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [String] {
+          let shelves = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
+            self.selectedLibrary.append(shelves)
         }
       }
     }
