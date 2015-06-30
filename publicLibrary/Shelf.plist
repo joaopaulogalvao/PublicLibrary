@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>shelves</key>
+		<array>
+			<string>Shelf 1</string>
+			<string>Shelf 2</string>
+			<string>Shelf 3</string>
+		</array>
+	</dict>
+  <dict>
+    <key>shelves</key>
+    <array>
+      <string>Shelf 1</string>
+      <string>Shelf 2</string>
+      <string>Shelf 3</string>
+      <string>Shelf 4</string>
+    </array>
+  </dict>
+  <dict>
+    <key>shelves</key>
+    <array>
+      <string>Shelf 1</string>
+      <string>Shelf 2</string>
+      <string>Shelf 3</string>
+      <string>Shelf 4</string>
+      <string>Shelf 5</string>
+    </array>
+  </dict>
+  <dict>
+    <key>shelves</key>
+    <array>
+      <string>Shelf 1</string>
+      <string>Shelf 2</string>
+      <string>Shelf 3</string>
+      <string>Shelf 4</string>
+      <string>Shelf 5</string>
+      <string>Shelf 6</string>
+    </array>
+  </dict>
+</array>
+</plist>

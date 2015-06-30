@@ -47,8 +47,8 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     {
       for object in libraryObjects {
         
-        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [String] {
-            let library = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
+        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int {
+            let library = Library(libraryName: libraryName, shelvesCount: shelvesCount)
             self.library.append(library)
         }
       }

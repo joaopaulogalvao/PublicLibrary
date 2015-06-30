@@ -11,7 +11,7 @@ import UIKit
 class ShelfViewController: UIViewController, UITableViewDataSource {
   
   var selectedLibrary = [Library]()
-  var shelf = [Shelf]()
+  var selectedSetOfShelves = [Shelf]()
   var shelfData = [String]()
   
   @IBOutlet weak var tableviewShelves: UITableView!
@@ -26,14 +26,14 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
   
   func loadShelfFromPlist() {
     
-    if let libraryPath = NSBundle.mainBundle().pathForResource("Library", ofType: "plist"),
-      shelfObjects = NSArray(contentsOfFile: libraryPath) as? [[String : AnyObject]]
+    if let shelfPath = NSBundle.mainBundle().pathForResource("Shelf", ofType: "plist"),
+      shelfObjects = NSArray(contentsOfFile: shelfPath) as? [[String : AnyObject]]
     {
       for object in shelfObjects {
         
-        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [String] {
-          let shelves = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
-            self.selectedLibrary.append(shelves)
+        if let shelfName = object["shelves"] as? [String] {
+          let shelves = Shelf(shelves: shelfName)
+            self.selectedSetOfShelves.append(shelves)
         }
       }
     }
@@ -61,9 +61,15 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
     
     let libraryCell = self.tableviewShelves.dequeueReusableCellWithIdentifier("ShelfCell", forIndexPath: indexPath) as! UITableViewCell
     
+    if self.selectedLibrary[indexPath.row] === 1 {
+      
+      println("Hello")
+      
+    }
+    
     //let shelfToDisplay = self.selectedLibrary[indexPath.row]
     
-    libraryCell.textLabel?.text = shelfData[indexPath.row]
+    //libraryCell.textLabel?.text = shelfData[indexPath.row]
     
     return libraryCell
   }

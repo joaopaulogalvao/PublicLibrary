@@ -13,13 +13,13 @@ class Library {
   
   var libraryName: String
   var shelvesCount: Int
-  var shelves : [String]!
+  //var shelves : [String]!
   
-  init (libraryName: String, shelvesCount: Int, shelves: [String] ){
+  init (libraryName: String, shelvesCount: Int){
     
     self.libraryName = libraryName
     self.shelvesCount = shelvesCount
-    self.shelves = shelves
+    //self.shelves = shelves
   }
   
 //  func countShelves (numberOfShelves: Int) -> Int{

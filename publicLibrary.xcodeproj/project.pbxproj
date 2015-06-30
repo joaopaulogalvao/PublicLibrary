@@ -19,6 +19,7 @@
 		6CA8C2E21B2E542D00CAB310 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CA8C2E11B2E542D00CAB310 /* Images.xcassets */; };
 		6CA8C2E51B2E542D00CAB310 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA8C2E31B2E542D00CAB310 /* LaunchScreen.xib */; };
 		6CA8C2F11B2E542D00CAB310 /* publicLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8C2F01B2E542D00CAB310 /* publicLibraryTests.swift */; };
+		6CE86A441B42494300BEB374 /* Shelf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CE86A431B42494300BEB374 /* Shelf.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		6CA8C2EA1B2E542D00CAB310 /* publicLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = publicLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA8C2EF1B2E542D00CAB310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA8C2F01B2E542D00CAB310 /* publicLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicLibraryTests.swift; sourceTree = "<group>"; };
+		6CE86A431B42494300BEB374 /* Shelf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shelf.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				6CA8C2D91B2E542D00CAB310 /* Info.plist */,
 				6C9DA21D1B3A193A006A913F /* Library.plist */,
+				6CE86A431B42494300BEB374 /* Shelf.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C9DA21E1B3A193A006A913F /* Library.plist in Resources */,
+				6CE86A441B42494300BEB374 /* Shelf.plist in Resources */,
 				6CA8C2E01B2E542D00CAB310 /* Main.storyboard in Resources */,
 				6CA8C2E51B2E542D00CAB310 /* LaunchScreen.xib in Resources */,
 				6CA8C2E21B2E542D00CAB310 /* Images.xcassets in Resources */,

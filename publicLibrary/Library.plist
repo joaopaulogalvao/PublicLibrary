@@ -7,54 +7,24 @@
 		<string>Freemont Library</string>
 		<key>shelvesCount</key>
 		<integer>3</integer>
-		<key>shelves</key>
-		<array>
-			<string>Shelf 1</string>
-			<string>Shelf 2</string>
-			<string>Shelf 3</string>
-		</array>
 	</dict>
 	<dict>
 		<key>libraryName</key>
 		<string>Ballard Library</string>
 		<key>shelvesCount</key>
 		<integer>4</integer>
-		<key>shelves</key>
-		<array>
-			<string>Shelf 1</string>
-			<string>Shelf 2</string>
-			<string>Shelf 3</string>
-			<string>Shelf 4</string>
-		</array>
 	</dict>
 	<dict>
 		<key>libraryName</key>
 		<string>Wedgewood Library</string>
 		<key>shelvesCount</key>
 		<integer>5</integer>
-		<key>shelves</key>
-		<array>
-			<string>Shelf 1</string>
-			<string>Shelf 2</string>
-			<string>Shelf 3</string>
-			<string>Shelf 4</string>
-			<string>Shelf 5</string>
-		</array>
 	</dict>
 	<dict>
 		<key>libraryName</key>
 		<string>Downtown Library</string>
 		<key>shelvesCount</key>
 		<integer>6</integer>
-		<key>shelves</key>
-		<array>
-			<string>Shelf 1</string>
-			<string>Shelf 2</string>
-			<string>Shelf 3</string>
-			<string>Shelf 4</string>
-			<string>Shelf 5</string>
-			<string>Shelf 6</string>
-		</array>
 	</dict>
 </array>
 </plist>

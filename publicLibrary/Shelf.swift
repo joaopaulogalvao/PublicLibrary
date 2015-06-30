@@ -10,11 +10,11 @@ import Foundation
 
 class Shelf {
   
-  var shelfLabel: [String]
+  var shelves : [String]!
   
   
-  init(shelfLabel: [String]) {
-    self.shelfLabel = shelfLabel
+  init(shelves: [String]) {
+    self.shelves = shelves
     
     
   }
