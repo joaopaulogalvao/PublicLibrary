@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ShelfViewController: UIViewController, UITableViewDataSource {
+class ShelfViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
-  var selectedLibrary = [Library]()
-  var shelf = [Shelf]()
-  var shelfData = [String]()
+  var selMake = String()
+  var shelfData : [String] = []
+  
   
   @IBOutlet weak var tableviewShelves: UITableView!
   override func viewDidLoad() {
@@ -20,24 +20,34 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
     
     // Do any additional setup after loading the view.
     self.tableviewShelves.dataSource = self
-    loadShelfFromPlist()
     
-  }
+    
+    switch selMake {
   
-  func loadShelfFromPlist() {
-    
-    if let libraryPath = NSBundle.mainBundle().pathForResource("Library", ofType: "plist"),
-      shelfObjects = NSArray(contentsOfFile: libraryPath) as? [[String : AnyObject]]
-    {
-      for object in shelfObjects {
-        
-        if let libraryName = object["libraryName"] as? String, shelvesCount = object["shelvesCount"] as? Int, shelves = object["shelves"] as? [String] {
-          let shelves = Library(libraryName: libraryName, shelvesCount: shelvesCount, shelves: shelves)
-            self.selectedLibrary.append(shelves)
-        }
-      }
+    case "Freemont" :
+      shelfData = ["Shelf 1", "Shelf 2", "Shelf 3"]
+    break
+      
+    case "Ballard" :
+      shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4"]
+    break
+      
+    case "Wedgewood" :
+      shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4", "Shelf 5"]
+    break
+      
+    case "Downtown" :
+      shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4", "Shelf 5", "Shelf 6"]
+    break
+      
+    default:
+      println("Sel Make \(selMake)")
+      break
     }
-  
+    
+    //self.tableviewShelves.reloadData()
+    
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -59,7 +69,7 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    let libraryCell = self.tableviewShelves.dequeueReusableCellWithIdentifier("ShelfCell", forIndexPath: indexPath) as! UITableViewCell
+    let libraryCell = self.tableviewShelves.dequeueReusableCellWithIdentifier("ShelfCell", forIndexPath: indexPath) as! ShelvesTableViewCell
     
     //let shelfToDisplay = self.selectedLibrary[indexPath.row]
     
@@ -67,17 +77,18 @@ class ShelfViewController: UIViewController, UITableViewDataSource {
     
     return libraryCell
   }
+  
+//  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//    println("Row \(indexPath.row)selected")
+//    
+//    performSegueWithIdentifier("ShowBooks", sender: self)
+//  }
 
   
   
-  /*
+
   // MARK: - Navigation
   
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
+
   
 }
