@@ -97,5 +97,5 @@ class ShelfViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
       }
     }
-  }  
+  }
 }
