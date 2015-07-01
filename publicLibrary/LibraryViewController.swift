@@ -65,29 +65,27 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     return libraryCell
   }
   
-  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    
-    //println("Row \(indexPath.row) selected")
-    
-    selMake = libraryData[indexPath.row]
-    
-    
-  }
-  
-
   
   // MARK: - Navigation
   
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    if(segue.identifier == "ShowShelves") {
-      var vc = segue.destinationViewController as! ShelfViewController
-      vc.selMake = selMake
+    if segue.identifier == "ShowShelves" {
+      
+      if let shelvesViewController = segue.destinationViewController as? ShelfViewController {
+        
+        let myIndexPath = self.tableViewLibraries.indexPathForSelectedRow()
+        
+        if let indexPath = self.tableViewLibraries.indexPathForSelectedRow() {
+          
+          let selectedRow = indexPath.row
+          let selectedLibrary = self.libraryData[selectedRow]
+          println("Row \(indexPath.row) selected")
+          shelvesViewController.selMake = selectedLibrary
+          
+        }
+      }
     }
-    
   }
-
 }
 
 
