@@ -78,17 +78,24 @@ class ShelfViewController: UIViewController, UITableViewDataSource, UITableViewD
     return libraryCell
   }
   
-//  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//    println("Row \(indexPath.row)selected")
-//    
-//    performSegueWithIdentifier("ShowBooks", sender: self)
-//  }
-
-  
-  
-
   // MARK: - Navigation
   
-
-  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowBooks" {
+      
+      if let booksViewController = segue.destinationViewController as? BooksViewController {
+        
+        let myIndexPath = self.tableviewShelves.indexPathForSelectedRow()
+        
+        if let indexPath = self.tableviewShelves.indexPathForSelectedRow() {
+          
+          let selectedRow = indexPath.row
+          let selectedShelf = self.shelfData[selectedRow]
+          println("Row \(indexPath.row) selected")
+          booksViewController.selMake = selectedShelf
+          
+        }
+      }
+    }
+  }  
 }
