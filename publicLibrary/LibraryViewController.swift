@@ -24,6 +24,9 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     super.viewDidLoad()
     self.tableViewLibraries.dataSource = self
     self.tableViewLibraries.delegate = self
+    
+    //Add edit button
+    self.navigationItem.rightBarButtonItem = self.editButtonItem()
   
     
     // Do any additional setup after loading the view.
@@ -40,6 +43,25 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     //self.tableViewLibraries.reloadData()
   }
   
+  // MARK: - UITableView
+  override func setEditing(editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    self.tableViewLibraries.setEditing(editing, animated: animated)
+    if editing {
+      self.editButtonItem().enabled = false
+    } else {
+      self.editButtonItem().enabled = true
+    }
+  }
+  
+  // MARK: - UITableViewDelegate - View Controller specifies a deletion control
+  func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    if indexPath.row == self.libraryData.count - 1 {
+      return UITableViewCellEditingStyle.Insert
+    } else {
+      return UITableViewCellEditingStyle.Delete
+    }
+  }
   
   // MARK: - UITableViewDataSource
   
