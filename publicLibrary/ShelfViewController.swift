@@ -26,25 +26,26 @@ class ShelfViewController: UIViewController, UITableViewDataSource, UITableViewD
   
     case "Freemont" :
       shelfData = ["Shelf 1", "Shelf 2", "Shelf 3"]
-      break
+    break
       
     case "Ballard" :
       shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4"]
-      
+    break
       
     case "Wedgewood" :
       shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4", "Shelf 5"]
-      
+    break
       
     case "Downtown" :
       shelfData = ["Shelf 1", "Shelf 2", "Shelf 3", "Shelf 4", "Shelf 5", "Shelf 6"]
-      
+    break
       
     default:
       println("Sel Make \(selMake)")
+      break
     }
     
-    self.tableviewShelves.reloadData()
+    //self.tableviewShelves.reloadData()
     
     
   }

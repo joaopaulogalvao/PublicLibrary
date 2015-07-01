@@ -24,7 +24,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     super.viewDidLoad()
     self.tableViewLibraries.dataSource = self
     self.tableViewLibraries.delegate = self
-
+  
     
     // Do any additional setup after loading the view.
   }
@@ -36,6 +36,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
     //self.tableViewLibraries.reloadData()
   }
   
@@ -66,7 +67,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
   
   func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
     
-    println("Row \(indexPath.row) selected")
+    //println("Row \(indexPath.row) selected")
     
     selMake = libraryData[indexPath.row]
     
