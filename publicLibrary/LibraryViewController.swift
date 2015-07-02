@@ -27,7 +27,6 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     
     //Add edit button
     self.navigationItem.rightBarButtonItem = self.editButtonItem()
-  
     
     // Do any additional setup after loading the view.
   }
@@ -43,24 +42,64 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     //self.tableViewLibraries.reloadData()
   }
   
+  // MARK: - My Actions
+  func addItem(sender:UIBarButtonItem) {
+    
+    println("Add button selected")
+    
+    let alert : UIAlertController = UIAlertController(title: "Library", message: "Add a new library:", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let saveAction : UIAlertAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+      let textField : UITextField = alert.textFields![0] as! UITextField
+      self.saveName(name: textField.text)
+      self.tableViewLibraries.reloadData()
+    }
+    
+    let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+      self.editButtonItem().enabled = true
+    }
+
+    alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in }
+    alert.addAction(saveAction)
+    alert.addAction(cancelAction)
+    
+    presentViewController(alert, animated: true, completion: nil)
+    
+  }
+  
+  func saveName(name newName: String) {
+    let name = newName
+    self.libraryData.append(name)
+  }
+  
   // MARK: - UITableView
   override func setEditing(editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     self.tableViewLibraries.setEditing(editing, animated: animated)
     if editing {
+      
       self.editButtonItem().enabled = false
+      
+      //Add an add button
+      self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItem:"), animated: true)
+      
     } else {
+      
       self.editButtonItem().enabled = true
     }
   }
   
-  // MARK: - UITableViewDelegate - View Controller specifies a deletion control
+  // MARK: - UITableViewDelegate  - View Controller specifies a deletion control
   func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-    if indexPath.row == self.libraryData.count - 1 {
+    if indexPath.row == self.libraryData.count {
       return UITableViewCellEditingStyle.Insert
     } else {
       return UITableViewCellEditingStyle.Delete
     }
+  }
+  
+  func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    self.editButtonItem().enabled = true
   }
   
   // MARK: - UITableViewDataSource
@@ -85,6 +124,18 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     libraryCell.labelLibrary.text = libraryData[indexPath.row]
     
     return libraryCell
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    // If row is deleted, remove it from the list
+    if editingStyle == UITableViewCellEditingStyle.Delete {
+      self.libraryData.removeAtIndex(indexPath.row)
+      self.tableViewLibraries.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+    } else {
+      self.navigationController?.inputViewController?.inputAccessoryView
+      
+    }
+    
   }
   
   
